@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "ROS: Launch",
+            "name": "foo_node",
             "type": "ros",
             "request": "launch",
             "target": "${workspaceFolder}/src/foo/launch/foo.launch"

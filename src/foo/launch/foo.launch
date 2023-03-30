@@ -1,4 +1,4 @@
 <launch>
-  <node pkg="foo" type="foo" name="foo" output="screen">
+  <node pkg="foo" type="foo_node" name="foo" output="screen">
   </node>
 </launch>
