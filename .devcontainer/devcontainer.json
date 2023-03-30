@@ -14,8 +14,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                // Python support in vscode
-                "ms-python.python",
                 // ROS support for debugging
                 "ms-iot.vscode-ros"
             ],
