@@ -17,14 +17,9 @@
                 // Python support in vscode
                 "ms-python.python",
                 // ROS support for debugging
-                "ms-iot.vscode-ros",
-                // catkin support for IntelliSense
-                "betwo.b2-catkin-tools"
+                "ms-iot.vscode-ros"
             ],
             "settings": {
-                "C_Cpp.codeAnalysis.clangTidy.enabled": true,
-                "C_Cpp.default.configurationProvider": "b2.catkin_tools",
-                "cmake.configureOnOpen": false,
                 "editor.formatOnSave": true,
                 "editor.renderWhitespace": "all"
             }
