@@ -1,12 +1,18 @@
-#include <ros/ros.h>
+#include "foo/foo_application.hpp"
 
-#include <iostream>
-
-int main(int argc, char **argv)
+auto main(int argc, char *argv[]) -> int
 {
-    ros::init(argc, argv, "foo_node");
+    const std::string node_name{"foo_node"};
+    ros::init(argc, argv, node_name);
 
-    std::cout << "Foo's main()" << std::endl;
+    foo::Application application{};
+
+    while (application.IsOk())
+    {
+        application.ProcessCallbacks();
+        application.Step();
+        application.Sleep();
+    }
 
     return 0;
 }
