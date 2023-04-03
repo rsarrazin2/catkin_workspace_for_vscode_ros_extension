@@ -30,20 +30,6 @@ namespace infrastructure_provider
         return kPublisher;
     }
 
-    auto WaitForCallbacks(const std::int32_t number_of_callbacks_to_wait_for) -> void
-    {
-        for (std::int32_t i{0}; i < number_of_callbacks_to_wait_for; i++)
-        {
-            while (ros::getGlobalCallbackQueue()->isEmpty())
-            {
-                ros::WallDuration(0, 1000).sleep();
-            }
-            ros::getGlobalCallbackQueue()->callOne();
-        }
-
-        ASSERT_TRUE(ros::getGlobalCallbackQueue()->isEmpty());
-    }
-
     auto WaitForTheTesteeToSubscribe() -> void
     {
         ASSERT_TRUE(ros::ok());
@@ -104,8 +90,9 @@ struct TestSuite : ::testing::Test
         infrastructure_provider::GetExpectedMessage() = expected_message;
 
         infrastructure_provider::GetPublisher().publish(message_to_be_published);
-        // infrastructure_provider::WaitForCallbacks(1);
 
+        // This is the place where this used to fail by never encountering a non-empty callback queue when called via
+        // the extension's ROS debugger while working flawlessly on the command line. Can't be reproduced for now.
         while (ros::getGlobalCallbackQueue()->isEmpty())
         {
             application.Sleep();
