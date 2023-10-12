@@ -8,7 +8,13 @@
             "name": "foo_node",
             "type": "ros",
             "request": "launch",
-            "target": "${workspaceFolder}/src/foo/launch/foo.launch"
+            "target": "${workspaceFolder}/src/foo/launch/foo_node.launch"
+        },
+        {
+            "name": "foo_test",
+            "type": "ros",
+            "request": "launch",
+            "target": "${workspaceFolder}/src/foo/test/foo_test.test"
         }
     ]
 }

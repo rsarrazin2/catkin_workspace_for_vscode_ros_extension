@@ -1,0 +1,4 @@
+<launch>
+  <test test-name="foo_test" pkg="foo" type="foo_test">
+  </test>
+</launch>
